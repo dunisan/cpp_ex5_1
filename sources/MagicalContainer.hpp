@@ -10,15 +10,11 @@ namespace ariel{
         std::vector<int> elements;
 
     public:
-        // Constructor
+
+        // default and copy constructors, distructor and assignment operator  
         MagicalContainer() = default;
-        // Destructor
-        ~MagicalContainer() = default;
-
-        // Copy constructor
         MagicalContainer(const MagicalContainer& other) : elements(other.elements) {}
-
-        // Assignment operator
+        ~MagicalContainer() = default;
         MagicalContainer& operator=(const MagicalContainer& other) {
             if (this != &other) {
                 elements = other.elements;
@@ -26,13 +22,9 @@ namespace ariel{
             return *this;
         }
 
-        // Method to add an element to the container
+        // container functions
         void addElement(int element);
-
-        // Method to remove an element from the container
         void removeElement(int element);
-
-        // Method to retrieve the size of the container
         int size();
 
 
@@ -44,55 +36,41 @@ namespace ariel{
                 int position;
 
             public:
+                // Default constructor, constructor, Copy constructor, Destructor, Assignment operator
                 
-                AscendingIterator(MagicalContainer& cont) : container(cont), position(0) {}
-                
-                // Default constructor
                 AscendingIterator():container(*(new MagicalContainer)), position(1){};
-
-                // Destructor
+                AscendingIterator(MagicalContainer& cont) : container(cont), position(0) {}
                 ~AscendingIterator() = default;
-
-                // Copy constructor
                 AscendingIterator(AscendingIterator& other):container(other.container), position(1){};
-
-                // Assignment operator
                 AscendingIterator& operator=(const AscendingIterator& other){return *this;};
 
-                // Equality comparison operator
+                // operators- == , != , > , < , * , ++ 
                 bool operator==(const AscendingIterator& other) const {
                     return false; 
                 }
-
-                // Inequality comparison operator
                 bool operator!=(const AscendingIterator& other) const {
                     return false;
                 }
-
                 bool operator<(const AscendingIterator& other) const{
                     return false; 
                 }
-
                 bool operator>(const AscendingIterator& other) const{
                     return false; 
                 }
 
-                // Dereference operator
                 int operator*() const {
                     return 1;
                 }
 
-                // Pre-increment operator
                 AscendingIterator& operator++() {
                     return *this;
                 }
 
-                // Begin iterator
+                // Begin and end of iterator
                 AscendingIterator begin() {
                     return *this; 
                 }
 
-                    // End iterator
                 AscendingIterator end() {
                     
                     return *this;
@@ -110,26 +88,18 @@ namespace ariel{
 
             public:
                 
-                PrimeIterator(MagicalContainer& cont) : container(cont), position(0) {}
-                
-                // Default constructor
+                // Default constructor, constructor, Copy constructor, Destructor, Assignment operator
                 PrimeIterator():container(*(new MagicalContainer())),position(1){};
-
-                // Destructor
-                ~PrimeIterator() = default;
-
-                // Copy constructor
+                PrimeIterator(MagicalContainer& cont) : container(cont), position(0) {}
                 PrimeIterator(const PrimeIterator& other):container(other.container),position(1){};
-
-                // Assignment operator
+                ~PrimeIterator() = default;
                 PrimeIterator& operator=(const PrimeIterator& other){return *this;}
 
-                // Equality comparison operator
+                // operators- == , != , > , < , * , ++ 
                 bool operator==(const PrimeIterator& other) const {
                     return false; 
                 }
 
-                // Inequality comparison operator
                 bool operator!=(const PrimeIterator& other) const {
                     return false;
                 }
@@ -142,22 +112,19 @@ namespace ariel{
                     return false; 
                 }
 
-                // Dereference operator
                 int operator*() const {
                     return 1;
                 }
 
-                // Pre-increment operator
                 PrimeIterator& operator++() {
                     return *this;
                 }
 
-                // Begin iterator
+                // Begin and end iterators
                 PrimeIterator begin() {
                     return *this; 
                 }
 
-                    // End iterator
                 PrimeIterator end() {
                     
                     return *this;
@@ -173,27 +140,18 @@ namespace ariel{
             int position;
 
         public:
-            
-            SideCrossIterator(MagicalContainer& cont) : container(cont), position(0) {}
-            
-            // Default constructor
+            // Default constructor, constructor, Copy constructor, Destructor, Assignment operator
             SideCrossIterator():container(*(new MagicalContainer())), position(1){};
-
-            // Destructor
-            ~SideCrossIterator() = default;
-
-            // Copy constructor
+            SideCrossIterator(MagicalContainer& cont) : container(cont), position(0) {}
             SideCrossIterator(const SideCrossIterator& other):container(other.container), position(1){};
-
-            // Assignment operator
+            ~SideCrossIterator() = default;
             SideCrossIterator& operator=(const SideCrossIterator& other) {return *this;};
 
-            // Equality comparison operator
+            // operators- == , != , > , < , * , ++ 
             bool operator==(const SideCrossIterator& other) const {
                 return false; 
             }
 
-            // Inequality comparison operator
             bool operator!=(const SideCrossIterator& other) const {
                 return false;
             }
@@ -206,22 +164,19 @@ namespace ariel{
                 return false; 
             }
 
-            // Dereference operator
             int operator*() const {
                 return 1;
             }
 
-            // Pre-increment operator
             SideCrossIterator& operator++() {
                 return *this;
             }
 
-            // Begin iterator
+            // Begin adn end iterators 
             SideCrossIterator begin() {
                 return *this; 
             }
 
-                // End iterator
             SideCrossIterator end() {
                 
                 return *this;
